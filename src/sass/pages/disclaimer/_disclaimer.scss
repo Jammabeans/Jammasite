@@ -1,0 +1,41 @@
+.Disclamer-mainwrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto;
+    max-width: $maxwidth;
+    font-size: 162.5%;
+    background-color: white;
+}
+
+
+.Disclamer-mainwrapper-boxcontainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 980px;
+    padding: 0px 25px;
+    overflow: hidden;
+    & h1{
+        font-size: 3rem;
+        font-weight: 100;
+        margin-bottom: 2rem;
+    }
+    & p{
+        font-size: 2rem;
+        line-height:3rem;
+    }
+}
+
+.Dislamer-box{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    margin: 20px 0px;
+    max-width:900px;
+}
+

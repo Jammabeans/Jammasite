@@ -1,0 +1,167 @@
+.coinTable{
+    &-container{
+        max-width: $maxwidth;
+        margin: 0 auto;
+        //border-radius: 10px;
+        overflow: hidden;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        background-color: white;
+    }
+    width: 100%;
+    transition: all 200ms;
+    &__table{
+        width: 100%;
+        border-collapse: collapse;
+        
+        &__head{
+            font-size: 20px;
+            & td{
+                padding: 1rem;
+                
+            }
+            &-dark{
+                background-color: #272727;
+                color: white;
+            }
+            &-light{
+                background-color: white;
+                color: black;
+            }
+        }
+        
+        & td{
+            padding: 10px;
+        }
+    }
+    &__row{
+        font-size: 1.4rem;
+        font-weight: 600;
+        text-align: center;
+        & td{
+            padding: 2rem 1.5rem;
+            text-align: center !important;
+            left: 50%;
+
+        }
+        &:not(:last-child){
+            border-bottom: 1px solid rgb(226, 226, 226);
+        }
+        &-dark{
+            background-color: #272727;
+            color: white;
+            &:hover{
+                background-color: black;
+            }
+        }
+        &-light{
+            background-color: white;
+            color: black;
+            &:hover{
+                background-color: #f2f5f7;
+            }
+        }
+        &__item{
+            // display: flex;
+            // align-items: center;
+            // text-align: center;
+            // margin: 0 1rem
+            &__link{
+                text-decoration: none;
+                color: inherit;
+                display: inline-block;
+            }
+            &__cont{
+                width: 10px;
+            }
+            &__image{
+                object-fit: contain;
+                width: 5rem;
+            }
+            & p{
+                display: inline-block;
+                align-items: center;
+                white-space: nowrap;
+            }
+            &__flex{
+                flex-grow: 1;
+                &__item{
+                    display: flex;
+                    justify-content: space-around;
+                }
+            }
+            &__presale{
+                background-color: #990099;
+                color: white;
+                padding: .5rem 2rem;
+                border-radius: 12px;
+            }
+            &__change{
+                &__triangle{
+                
+                    display: inline-block;
+                    width: 10px;
+                    height: 10px;
+                    margin: 0 5px;
+                }
+
+                &-active p{
+                    color: rgb(107, 179, 0);
+                }
+                &-deactive p{
+                    color: red;
+                }
+
+                &-active &__triangle{
+                    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+                    background-color: rgb(107, 179, 0);
+                }
+                &-deactive &__triangle{
+                    clip-path: polygon(50% 100%, 0 0, 100% 0);
+                    background-color: red;
+                }
+            }
+
+            &__vote{
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex: 1;
+                color: #28a745;
+                border: 1px solid #28a745;
+                border-radius: 10px;
+                padding: 0.25rem 2.5rem;
+                transition: all 200ms;
+                //pointer-events: all;
+                &:hover{
+                    background-color: #28a745;
+                    color:  white;
+                    & svg{
+                        stroke: white;
+                    }
+                }
+                & svg{
+                    width: 2rem;
+                    stroke: #28a745;
+                }
+                & p{
+                    margin: 0 .25rem;
+                }
+                &-disabled{
+                    pointer-events: none;
+                }
+                &-voted{
+                    background-color: #28a745;
+                    color:  white;
+                    & svg{
+                        stroke: white;
+                    }
+                    box-shadow: #28a745 0px 20px 25px -5px, #28a745 0px 10px 10px -5px;
+                }
+            }
+
+        }
+
+
+    }
+}

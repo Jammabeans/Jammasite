@@ -5,6 +5,8 @@ import { MoralisProvider } from "react-moralis";
 import "./index.css";
 import QuickStart from "components/QuickStart";
 import { MoralisDappProvider } from "./providers/MoralisDappProvider/MoralisDappProvider";
+import { Provider } from "react-redux";
+import store from './Redux/store'
 
 /** Get your free Moralis Account https://moralis.io/ */
 
@@ -17,14 +19,18 @@ const Application = () => {
     return (
       <MoralisProvider appId={APP_ID} serverUrl={SERVER_URL}>
         <MoralisDappProvider>
-          <App isServerInfo />
+        <React.StrictMode>
+      <Provider store={store}>
+      <App />
+      </Provider>
+      </React.StrictMode>
         </MoralisDappProvider>
       </MoralisProvider>
     );
   else {
     return (
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <QuickStart />
+        
       </div>
     );
   }

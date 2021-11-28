@@ -1,0 +1,69 @@
+.PriavcyPolicy-mainwrapper{
+    font-size: 162.5%;
+    line-height: 3rem;
+    max-width: $maxwidth;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5rem auto;
+    padding: 5rem 0;
+    background-color: white;
+}
+.PriavcyPolicy-inner{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: auto;
+    max-width: 1280px;
+    padding: 0px 25px;
+    & a{
+        text-decoration: none;
+        color: #007bd9;
+        &:hover{
+            color:#0064b1
+        }
+    }
+}
+.PriavcyPolicy-inner-box-list ul li {
+    list-style: disc;
+    list-style-position:outside;
+    text-align: left;
+    font-size: 18px;
+    line-height: normal;
+    letter-spacing: 0.5px;
+
+}
+.PriavcyPolicy-inner-box-list ul{
+    margin: 10px 50px;
+}
+
+.PriavcyPolicy-inner-box-paragraph p{
+    font-size: 18px;
+
+}
+
+.PriavcyPolicy-mainwrapper {
+    
+}
+
+
+.PriavcyPolicy-inner{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px;
+    overflow: hidden;
+}
+
+.PriavcyPolicy-inner-box{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    margin: 20px 0px;
+    max-width:900px;
+}
+

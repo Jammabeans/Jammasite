@@ -1,0 +1,97 @@
+.coin__comments{
+
+
+    
+    &__form{
+        border-radius: 10px;
+            overflow: hidden;
+            background-color: #272727;
+            color: white;
+        &__right{
+
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            //border-left: 1px solid rgb(165, 165, 165);
+        }
+        &__input{
+            display: flex;
+            flex-direction: row;
+            &__field{
+                resize: none;
+                border: none;
+                height: 100%;
+                outline: none;
+                padding: 1rem;
+                margin: 1rem;
+                color: inherit;
+                background-color: transparent;
+                border: 1px solid rgb(179, 179, 179);
+                &::placeholder{
+                    color:inherit;
+                }
+            }
+            &__icon{
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                margin: 2rem;
+                font-size: 3rem;
+                cursor: pointer;
+                color: #6DC995;
+                transition: all 200ms;
+                opacity: 0;
+                pointer-events: none;
+                &:hover{
+                    transform: scale(1.05);
+                }
+                &__show{
+                    opacity: 1;
+                    pointer-events: all;
+                }
+            }
+           
+        }
+        &__left{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding:1rem 2rem;
+            border-left: 7px solid #28a745;
+            
+        }
+        &__image{
+            width: 7.5rem;
+            border-radius: 50%;
+            margin-bottom: 2rem;
+        }
+        &__icon{
+            font-size: 3rem;
+            margin: 1rem 2rem;
+            cursor: pointer;
+            transition: all 300ms;
+            color: inherit;
+            &-support{
+                &:hover{
+                    transform: scale(1.1);
+                }
+                &-active{
+                    color: rgb(0, 255, 0);
+                }
+            }
+            &-scam{
+                transform: rotate(180deg);
+                &:hover{
+                    transform: scale(1.1)rotate(180deg);
+                }
+                &-active{
+                    color: red;
+                }
+            }
+            
+        }
+    }
+}

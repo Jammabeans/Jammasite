@@ -1,0 +1,71 @@
+.coin__report{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 1.5rem;
+    &__icon{
+        cursor: pointer;
+        font-size: 3rem;
+        color: rgb(95, 95, 95);
+        transition: all 300ms;
+        &:hover{
+            transform: scale(1.06);
+        }
+        &:active{
+            transform: scale(1.03);
+        }
+    }
+    &__overlay{
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        &__mask{
+            position: fixed;
+            inset: 0;
+            background-color: rgba(146, 146, 146, 0.193)
+        }
+        &__form{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            padding:    2rem;
+            border-radius: 5px;
+            &__header{
+                font-weight: 100;
+                margin-bottom: 1rem;
+                color: rgb(121, 121, 121);
+            }
+            &__input{
+                margin: 1rem 0;
+                padding: 1rem;
+                width: 500px;
+                border: none;
+                box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+                border-radius: 5px;
+                outline: none;
+            }
+            &__button{
+                background-color: #28a745;
+                border: none;
+                outline: none;
+                align-self: flex-start;
+                padding: 15px 25px;
+                border-radius: 5px;
+                cursor: pointer;
+                color: white;
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                transition: all 100ms;
+                &:active{
+                    transform: translateY(1px);
+                }
+                &:hover{
+                    background-color: #23923d;
+                }
+            }
+        }
+    }
+}

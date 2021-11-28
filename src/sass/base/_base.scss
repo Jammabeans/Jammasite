@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  font-family:sans-serif;
+}
+
+$maxwidth: 120rem;
+
+@mixin minheight{
+    min-height: calc(100vh - #{$height-header-desktop} - #{$height-footer-desktop} - #{$height-overview-desktop});
+        @include respond(phone){
+            min-height: calc(100vh - #{$height-header-mobile} - #{$height-footer-mobile} - #{$height-overview-mobile});
+        }
+}
+
+html {
+  font-size: 62.5%;
+  @include respond(tab) {
+    font-size: 50%; // 1rem = 6px, 6/16 = 37.5%
+  }
+  @include respond(phone) {
+    font-size: 37.5%; // 1rem = 4.8px, 4.8/16 = 30%
+  }
+  @include respond(big-desktop) {
+    font-size: 62.5%; // 1rem = 10px, 10/16 = 62.5%
+  }
+}
+
+
+.app{
+  background-color: #eaeaea;
+  overflow: hidden;
+}

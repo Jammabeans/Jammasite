@@ -15,12 +15,25 @@ function MenuItems() {
         fontWeight: "500",
         width: "100%",
         justifyContent: "center",
+        background: "#a13aa7",
       }}
       defaultSelectedKeys={[pathname]}
     >
       <Menu.Item key="/quickstart">
-        <NavLink to="/quickstart">🚀 Quick Start</NavLink>
+        <NavLink to="/">🚀 Home</NavLink>
       </Menu.Item>
+      <Menu.Item key="addcoin">
+              <NavLink to="/addcoin">Addcoin</NavLink>
+            </Menu.Item>
+            <Menu.Item key="promote">
+              <NavLink to="/promote">Promote</NavLink>
+            </Menu.Item>
+            <Menu.Item key="DYOR">
+              <NavLink to="/dyor">DYOR</NavLink>
+            </Menu.Item>
+            <Menu.Item key="airdrop">
+              <NavLink to="/airdrop"> Airdrop</NavLink>
+            </Menu.Item>
       <Menu.Item key="/wallet">
         <NavLink to="/wallet">👛 Wallet</NavLink>
       </Menu.Item>

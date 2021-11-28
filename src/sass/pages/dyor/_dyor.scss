@@ -1,0 +1,51 @@
+.dyor-Mainwrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5rem auto;
+    max-width: $maxwidth;
+    font-size: 162.5%;
+}
+
+
+.mainWrapper-boxContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 980px;
+    padding: 0px 25px;
+    overflow: hidden;
+    background-color: white;
+}
+
+.mainWrapper-box{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    margin: 20px 0px;
+    max-width:900px;
+    & h1{
+        margin: 2rem 0;
+    }
+}
+
+.mainWrapper-box-ul li{
+    list-style-type: none;
+    position: relative;
+    line-height: 25px;
+}
+
+.mainWrapper-box-ul li::before{
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 6px;
+    background-color: rgb(124, 124, 124);
+    top: 13px;
+    left: -12px;
+
+}

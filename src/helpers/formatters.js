@@ -16,6 +16,13 @@ export const c2 = new Intl.NumberFormat("en-us", {
   maximumFractionDigits: 2,
 });
 
+export const n12 = new Intl.NumberFormat("en-us", {
+  style: "decimal",
+  minimumFractionDigits: 0,
+  maximumFractionDigits: 12,
+});
+
+
 /**
  * Returns a string of form "abc...xyz"
  * @param {string} str string to string

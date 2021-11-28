@@ -1,0 +1,73 @@
+.coin__detail__reactions{
+    margin: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    &__item{
+        display: flex;
+        flex-direction:column;
+        align-items: center;
+        justify-content: center;
+        margin: 0 1rem;
+        &::after{
+            
+            position: relative;
+            width: 100%;
+            text-align: center;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            color: transparent;
+        }
+        &-normal{
+            color: rgba(165, 42, 42, 0.789);
+            &:hover{
+                &::after{
+                    color: rgba(165, 42, 42, 0.789);
+                }
+            }
+            &::after{
+                content: 'Normal Votes';
+            }
+        }
+        &-silver{
+            color: rgb(221, 221, 221);
+            &:hover{
+                &::after{
+                    color: rgb(221, 221, 221);
+                }
+            }
+            &::after{
+                content: 'Silver Votes';
+            }
+        }
+        &-gold{
+            color: gold;
+            &:hover{
+                &::after{
+                    color: gold;
+                }
+            }
+            &::after{
+                content: 'Gold Votes';
+            }
+        }   
+        &__value{
+            font-size: 2rem;
+            color: rgb(51, 51, 51);
+        }
+        &__icon{
+            font-size: 5rem;
+            width: 5rem;
+            margin-top: 1rem;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: all 300ms;
+            &:hover{
+                transform: scale(1.05);
+            }
+
+        }
+    }
+}

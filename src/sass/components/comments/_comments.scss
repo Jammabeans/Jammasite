@@ -1,0 +1,49 @@
+.comments{
+    &-container{
+        background-color: white;
+        max-width: $maxwidth;
+        margin:  5rem auto;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    &__header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2rem 5rem;
+        padding-bottom: 0;
+        &__info{
+            display: flex;
+            align-items: center;
+            &__image{
+                border-radius: 50%;
+                margin-right: 3rem;
+                width: 5rem;
+            }
+            & p{
+                font-size: 2rem;
+            }
+        }
+        &__type{
+            
+            // transform: rotate(180deg);
+            // color: red;
+            &__icon{
+                font-size: 3rem;
+                &__upvote{
+                    color: greenyellow;
+                }
+                &__downvote{
+                    color: red;
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+    &__content{
+        padding: 2rem 5rem;
+        text-align: left;
+        font-size: 1.75rem;
+        border-bottom: 1px solid rgb(228, 228, 228);
+    }
+}

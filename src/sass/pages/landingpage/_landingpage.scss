@@ -1,0 +1,118 @@
+.landingPage{
+    &-container{
+        max-width: $maxwidth;
+        margin: 5rem auto;
+    }
+    &__tableContent{
+        text-align: center;
+        border-radius: 0 0 5px 5px;
+        overflow: hidden;
+        &__button{
+            background-color: transparent;
+            padding: 1.5rem 2.5rem;
+            background-color: tomato;
+            margin: 5rem auto;
+            color: white;
+            font-size: 1.5rem;
+            outline: none;
+            border: none;
+            border-radius: 3px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            cursor: pointer;
+            transition: all 200ms;
+            backface-visibility: hidden;
+            &:hover{
+                transform: translateY(-1px) scale(1.01);
+            }
+        }
+    }
+    &__selectors{
+        display: flex;
+        &__button{
+            font-size: 2rem;
+            padding: 1rem 2rem;
+            color: #28a78a;
+            cursor: pointer;
+            border: 1px solid transparent;
+            border-bottom: 0;
+            border-radius: 3px 3px 0 0;
+            &:hover{
+                border-color: white;
+            }
+            &-selected{
+                background-color: white;
+                color: black;
+            }
+        }
+    }
+    &__about{
+        margin: 5rem auto;
+        &__header{
+            text-align: center;
+            font-weight: 600;
+        }
+        &__cards{
+            display: flex;
+            flex-direction: row;
+            @include respond(tab){
+                flex-direction: column;
+            }
+            justify-content: space-between;
+            
+            &__item{
+                background-color: white;
+                padding: 2rem;
+                border-radius: 3px;
+                max-width: 300px;
+                min-width: 300px;
+                margin: 2rem auto;
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                & h2{
+                    font-size: 1.5rem;
+                    @include respond(tab){
+                        font-size: 2rem;
+                    }
+                }
+                & p{
+                    font-size: 1.25rem;
+                    @include respond(tab){
+                        font-size: 1.5rem;
+                    }
+                    margin: 1rem 0;
+                    word-break: break-all;
+                    & a{
+                        color: inherit;
+                        cursor: pointer;
+                    }
+                }
+                & span{
+                    font-size: 1.25rem;
+                }
+                &__button{
+                    background-color: black;
+                    border-radius: 4px;
+                    color: white;
+                    display: flex;
+                    width: max-content;
+                    padding: 1rem;
+                    padding-right: 2rem;
+                    margin: 1rem 0;
+                    font-size: 1.5rem;
+                    text-decoration: none;
+                    align-items: center;
+                    &__icon{
+                        font-size: 2rem;
+                        margin: 0 1rem;
+                    }
+                    &__image{
+                        width: 20px;
+                        margin: 0 1rem;
+                    }
+                }
+            }
+        }
+    }
+    &__roadmap{
+        width: 100%;
+    }
+}

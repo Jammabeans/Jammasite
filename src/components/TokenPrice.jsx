@@ -15,6 +15,7 @@ const styles = {
 };
 function TokenPrice(props) {
   const { tokenPrice } = useTokenPrice(props);
+  console.log(tokenPrice)
   const [isUSDMode, setIsUSDMode] = useState(true);
 
   const toggleDisplayStyle = () => setIsUSDMode(!isUSDMode);

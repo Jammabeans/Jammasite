@@ -1,0 +1,36 @@
+.themeToggle{
+    width: 75px;
+    height: 25px;
+    border-radius: 15px;
+    position: relative;
+    cursor: pointer;
+    &__dot{
+        position: absolute;
+        height: 25px;
+        width: 25px;
+        border-radius: 100%;
+        background-color: tomato;
+        transition: all 1s;
+    }
+    &-active{
+        background-color: white;
+    }
+    &-deactive{
+        background-color: #666666;
+    }
+    &-active &__dot{
+        left: 0;
+    }
+    &-deactive &__dot{
+        left: 100%;
+        transform: translateX(-100%);
+    }
+}
+
+
+// @keyframes active {
+//     to{
+//         left: 100%;
+//         transform: translateX(-100%);
+//     }
+// }
