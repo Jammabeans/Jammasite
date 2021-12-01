@@ -117,6 +117,7 @@ console.log(coinData)
                                             coin ={ coinData }
                                             user = {user}
                                             setVoteDisabled = {setVoteDisabled}
+                                            option = {1}
                                         />
                                     </div>
                                     </div>

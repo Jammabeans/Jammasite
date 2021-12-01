@@ -4,6 +4,9 @@
 /node_modules
 /.pnp
 .pnp.js
+/data
+data/
+data
 
 # testing
 /coverage
@@ -33,3 +36,6 @@ typechain
 #Truffle files
 /Truffle/build
 /Truffle/data
+
+
+
