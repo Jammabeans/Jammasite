@@ -129,7 +129,12 @@ const App = ({ isServerInfo }) => {
     <Layout style={{ height: "100vh", overflow: "auto" }}>
       <Router>
         <Header style={styles.header}>
-        
+        <div>
+        <Link to="/" className="navbar__logo">
+                    <img className="navbar__logo__image" src="/logo.png" alt="" />
+                    <span> Jamma Beans </span>
+                </Link>
+                </div>
        
           
           

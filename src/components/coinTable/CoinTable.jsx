@@ -92,6 +92,7 @@ console.log(slectedOption)
         
     }
 console.log(myArray)
+console.log(user)
     return (
         <Background className="coinTable-container">
             <div className="coinTable" >

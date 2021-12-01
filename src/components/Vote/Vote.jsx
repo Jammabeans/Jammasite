@@ -81,8 +81,8 @@ const Vote = (props) =>{
             }))
             console.log("Notdond")
         }
-
-        const balance = await getBalance(props.user.publicKey)
+        let balance = 0
+        balance = await getBalance(props.user.publicKey)
 
         if(props.user.voteType === "normal"){
             props.setvotedCoin({
@@ -105,6 +105,7 @@ const Vote = (props) =>{
                 voteValue : props.coin.voteValue + balance
             })
         }
+        
 
         
         const newData = await axios.post("http://localhost:4000/v1/users/vote",{userId:props.user._id, coinId: props.coin._id, voteValue: balance})
