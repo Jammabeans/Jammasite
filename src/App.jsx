@@ -80,11 +80,12 @@ const App = ({ isServerInfo }) => {
   const { walletAddress } = useMoralisDapp();
   let ff;
 
-  useEffect(() => {
+  useEffect( () => {
     if (isAuthenticated && !isWeb3Enabled && !isWeb3EnableLoading) enableWeb3();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    const publicKey = reactLocalStorage.get('publicKey')
-    if(publicKey){
+    const publicKey = walletAddress;
+    console.log(publicKey)
+    if(isAuthenticated){
 
       window.ethereum
           .request( { method: 'eth_requestAccounts' } )
@@ -92,7 +93,7 @@ const App = ({ isServerInfo }) => {
             console.log(accounts[0])
             console.log(publicKey)
             if(accounts[0] === publicKey){
-              const {payload } = dispatch(login(publicKey))
+              const {payload } =  dispatch( login(publicKey));
               ff = payload
             }
             else{
