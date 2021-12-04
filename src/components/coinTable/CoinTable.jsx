@@ -32,14 +32,17 @@ console.log(slectedOption)
     useEffect(() => {
 
         if(votedCoin && coinData){
+            
             setCoinData([
-                ...coinData.map(el =>{
+               [...coinData.map(el =>{
                     if( el._id === votedCoin._id){
                         return Object.assign({}, el, votedCoin)
                     }
                     return el
-                })
+                })]
             ])
+
+           
         }
 
         console.log('effect triggered')
@@ -49,9 +52,7 @@ console.log(slectedOption)
 
     }, [votedCoin, sortBy])
 
-    // useEffect(() => {
-    //     console.log(coinData)
-    // }, [coinData])
+   
 
     const isVoted = (coinId) => {
         let found;
@@ -63,7 +64,7 @@ console.log(slectedOption)
         }
     }
 
-    const sortNormalVotes = async() => {
+    async function  sortNormalVotes ()  {
 
         console.log('age clicked')
         myArray.sort((a,b) => b.voteCount.normaleVoteCount - a.voteCount.normaleVoteCount)
@@ -91,8 +92,7 @@ console.log(slectedOption)
         setSortBy('byVoteValue')       
         
     }
-console.log(myArray)
-console.log(user)
+
     return (
         <Background className="coinTable-container">
             <div className="coinTable" >
@@ -113,7 +113,7 @@ console.log(user)
                             </thead>
                             <tbody>
                             {
-                                coinData.map( (coin, index) =>
+                                coinData.filter(x => x.isApproved ==true).map( (coin, index) =>
                                     <tr key={index}  className={`coinTable__row ${isDarkMode ? `coinTable__row-dark` : `coinTable__row-light`} `}>
                                         <td className="coinTable__row__item coinTable__row__item__cont">
                                             <Link 
@@ -137,8 +137,7 @@ console.log(user)
                                         </td>
                                         <td className="coinTable__row__item__flex">
                                         {
-                                            !coin.isPresale
-                                            ?
+                                            
                                                 <div className="coinTable__row__item__flex__item">
                                                     <div className="coinTable__row__item">
                                                         <p>
@@ -151,12 +150,8 @@ console.log(user)
                                                          </p>
                                                     </div>
                                                 </div>
-                                                :
-                                                <div className="coinTable__row__item__flex__item">
-                                                    <div className="coinTable__row__item">
-                                                        <div className="coinTable__row__item__presale">Presale</div>
-                                                    </div>
-                                                </div>
+                                                
+                                                
                                         }
                                         </td>
                                         {/* FIXME not working */}

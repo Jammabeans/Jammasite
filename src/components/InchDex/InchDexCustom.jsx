@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
-import { useMoralis } from "react-moralis";
+import { useMoralis, useWeb3Contract } from "react-moralis";
 import { useMoralisDapp } from "providers/MoralisDappProvider/MoralisDappProvider";
 import InchModal from "./components/InchModal";
 import useInchDex from "hooks/useInchDex";
@@ -8,6 +8,7 @@ import Text from "antd/lib/typography/Text";
 import { ArrowDownOutlined } from "@ant-design/icons";
 import useTokenPrice from "hooks/useTokenPrice";
 import { tokenValue } from "helpers/formatters";
+//import erc20Abi from "./contractAbi/standardErc20Abi" 
 // import { useOneInchQuote } from "react-moralis";
 
 const styles = {
@@ -44,7 +45,7 @@ const chainIds = {
   "0x89": "polygon",
 };
 
-function InchDex({ chain }) {
+function InchDexCustom({ chain, toTokenAddress, slippage }) {
   const { trySwap, tokenList, getQuote } = useInchDex(chain);
 console.log(tokenList)
   const { Moralis, isInitialized } = useMoralis();
@@ -59,6 +60,10 @@ console.log(tokenList)
   const { fetchTokenPrice } = useTokenPrice();
   const [tokenPricesUSD, setTokenPricesUSD] = useState({});
   console.log("fromToken", fromToken);
+  const options = { chain: chain, addresses: toTokenAddress }; //--------------------
+  const [ tokendata, settokendata] = useState([])
+  const [newslippage, setSlippage] = useState(slippage)
+  const [ tokenDataAddress, setTokenDataAddress] = useState()
   const fromTokenPriceUsd = useMemo(
     () => (tokenPricesUSD?.[fromToken?.["address"]] ? tokenPricesUSD[fromToken?.["address"]] : null),
     [tokenPricesUSD, fromToken]
@@ -80,6 +85,10 @@ console.log(tokenList)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [toTokenPriceUsd, quote]);
 
+
+   function changeSlippage(e){
+    setSlippage(e.target.value);
+   }
   // tokenPrices
   useEffect(() => {
     if (!isInitialized || !fromToken || !chain) return null;
@@ -108,6 +117,23 @@ console.log(tokenList)
     setFromToken(tokenList[nativeAddress]);
   }, [tokenList]);
 
+
+  useEffect(async() => {
+    const result =await Moralis.Web3API.token.getTokenMetadata(options)
+    settokendata(result);
+    if(!toToken ){
+      setToToken(result[0]);
+      setTokenDataAddress(result[0].address)
+    }
+   
+     
+    //.then(setCurrentTrade( fromToken, toTokenAddress, fromAmount, chain))
+    console.log(result);
+    if (tokendata){
+      
+    }
+  }, [toToken]);
+
   const ButtonState = useMemo(() => {
     if (chainIds?.[chainId] !== chain) return { isActive: false, text: `Switch to ${chain}` };
     // if (chainIds[chainId] !== chain)
@@ -118,8 +144,10 @@ console.log(tokenList)
   }, [fromAmount, currentTrade, chainId, chain]);
 
   useEffect(() => {
-    if (fromToken && toToken && fromAmount) setCurrentTrade({ fromToken, toToken, fromAmount, chain });
-  }, [toToken, fromToken, fromAmount, chain]);
+    if (fromToken && toToken && fromAmount) 
+    setCurrentTrade({ fromToken, toToken, fromAmount, chain, newslippage });
+    
+  }, [toToken, fromToken, fromAmount, chain, newslippage]);
 
   useEffect(() => {
     if (currentTrade) getQuote(currentTrade).then((quote) => setQuote(quote));
@@ -203,7 +231,7 @@ console.log(tokenList)
           <ArrowDownOutlined />
         </div>
         <Card style={{ borderRadius: "1rem" }} bodyStyle={{ padding: "0.8rem" }}>
-          <div style={{ marginBottom: "5px", fontSize: "14px", color: "#434343" }}>To</div>
+          <div style={{ marginBottom: "5px", fontSize: "14px", color: "#434343" }}>To <div style={{ marginBottom: "5px", fontSize: "12px", color: "#434343" }}> {tokenDataAddress}</div></div>
           <div
             style={{
               display: "flex",
@@ -269,6 +297,12 @@ console.log(tokenList)
             <PriceSwap />
           </div>
         )}
+        
+      <div style={{ display:"flex", justifyContent:"space-between", padding:"5px 10px"}}>
+      <label htmlFor="">Slippage</label>
+      <input type="range" min="0" onChange={changeSlippage} value={newslippage} max="50"  />
+        <input type="number" onChange={changeSlippage} value={newslippage} max="50" min="0" name="" placeholder="slippage" id="" />
+      </div>
         <Button
           type="primary"
           size="large"
@@ -311,14 +345,14 @@ console.log(tokenList)
           open={isToModalActive}
           onClose={() => setToModalActive(false)}
           setToken={setToToken}
-          tokenList={tokenList}
+          tokenList={tokendata}
         />
       </Modal>
     </>
   );
 }
 
-export default InchDex;
+export default InchDexCustom;
 
 const Arrow = () => (
   <svg

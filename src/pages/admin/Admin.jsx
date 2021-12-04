@@ -3,20 +3,17 @@ import AllCoins from './components/allCoins'
 import AllReports from './components/allReports'
 import PendingCoins from './components/pendingCoins'
 import PendingReports from './components/pendingReports'
-import {useSelector} from 'react-redux'
-import { reactLocalStorage } from "reactjs-localstorage";
+import { useMoralisDapp } from "providers/MoralisDappProvider/MoralisDappProvider";
 
 function Admin() {
 
     const [activeDropdown, setActiveDropdown] = useState(0)
     const [option, setOption] = useState(1)
-    const {user} = useSelector(state => state.user)
-    console.log(user)
-    //console.log(user.publicKey)
-    const publicKey = reactLocalStorage.get('publicKey')
-    console.log(publicKey)
+    const { walletAddress } = useMoralisDapp();
+    
+   
 
-    if (user.publicKey == 0xa6252CD5baea1FFe71c97328Dc61fEf3A331D13D) {
+    if (walletAddress == 0xa6252CD5baea1FFe71c97328Dc61fEf3A331D13D) {
         console.log("true")
     
    

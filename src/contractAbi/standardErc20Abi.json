@@ -1,4 +1,4 @@
-[
+{"erc20Abi": [
     {
         "constant": true,
         "inputs": [],
@@ -219,4 +219,4 @@
         "name": "Transfer",
         "type": "event"
     }
-]
+]}
