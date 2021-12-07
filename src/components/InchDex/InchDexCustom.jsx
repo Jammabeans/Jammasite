@@ -46,7 +46,7 @@ const chainIds = {
 };
 
 function InchDexCustom({ chain, toTokenAddress, slippage }) {
-  const { trySwap, tokenList, getQuote } = useInchDex(chain);
+  let { trySwap, tokenList, getQuote } = useInchDex(chain);
 console.log(tokenList)
   const { Moralis, isInitialized } = useMoralis();
   const { chainId } = useMoralisDapp();
@@ -64,6 +64,7 @@ console.log(tokenList)
   const [ tokendata, settokendata] = useState([])
   const [newslippage, setSlippage] = useState(slippage)
   const [ tokenDataAddress, setTokenDataAddress] = useState()
+  const [ tokenFromDataAddress, setTokenFromDataAddress] = useState()
   const fromTokenPriceUsd = useMemo(
     () => (tokenPricesUSD?.[fromToken?.["address"]] ? tokenPricesUSD[fromToken?.["address"]] : null),
     [tokenPricesUSD, fromToken]
@@ -123,12 +124,17 @@ console.log(tokenList)
     settokendata(result);
     if(!toToken ){
       setToToken(result[0]);
-      setTokenDataAddress(result[0].address)
+      setTokenDataAddress(result[0].address);
+      console.log(tokenList)
+      //tokenList.push(result[0])
+
     }
    
      
     //.then(setCurrentTrade( fromToken, toTokenAddress, fromAmount, chain))
+   // tokenList.add(result)
     console.log(result);
+    console.log(tokenList)
     if (tokendata){
       
     }
@@ -180,6 +186,7 @@ console.log(tokenList)
       <Card style={styles.card} bodyStyle={{ padding: "18px" }}>
         <Card style={{ borderRadius: "1rem" }} bodyStyle={{ padding: "0.8rem" }}>
           <div style={{ marginBottom: "5px", fontSize: "14px", color: "#434343" }}>From</div>
+          <div style={{ marginBottom: "5px", fontSize: "14px", color: "#434343" }}> <div style={{ marginBottom: "5px", fontSize: "12px", color: "#434343" }}> {tokenDataAddress}</div></div>
           <div
             style={{
               display: "flex",
