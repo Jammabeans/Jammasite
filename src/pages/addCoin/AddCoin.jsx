@@ -74,7 +74,8 @@ function AddCoin() {
             twitterUrl: twitterUrl.current.value,
             telegramUrl: telegramUrl.current.value,
             additionalInformation: additionalInformation.current.value,
-            userId: user._id
+            userId: user._id,
+            isApproved: false
         })
         .then( (_) =>{
             dispatch(createNotification({

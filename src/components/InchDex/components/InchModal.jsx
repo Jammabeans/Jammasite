@@ -16,7 +16,8 @@ function InchModal({ open, onClose, setToken, tokenList }) {
                 cursor: "pointer",
               }}
               onClick={() => {
-                setToken(tokenList[token]);
+              setToken(tokenList[token]);
+                console.log(tokenList[token])
                 onClose();
               }}
               key={index}

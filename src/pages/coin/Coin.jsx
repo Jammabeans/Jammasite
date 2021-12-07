@@ -14,6 +14,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import Report from './components/report/Report'
 import axios from 'axios'
 import LoadingIndicator from '../../components/LoadingIndicator/LoadingIndicator'
+import InchDexCustom from "../../components/InchDex/InchDexCustom";
 import { userActions } from '../../Redux/userSlice/userSlice'
 import {createNotification, NOTIFICATION_TYPE_SUCCESS, NOTIFICATION_TYPE_ERROR, NOTIFICATION_TYPE_INFO} from 'react-redux-notify'   
 import TokenPrice from "components/TokenPrice"
@@ -127,7 +128,7 @@ console.log(coinData)
                                         <FaCopy className="coin__detail__chain__copyIcon"/>
                                     </div>
                                 </div>
-
+<div style={{ display:"flex", justifyContent:"center", padding:"5px 10px"}} ><InchDexCustom  chain="bsc" toTokenAddress={address}/></div>
                                 <div className="coin__detail__description">
                                     <p className="coin__detail__description__des">
                                         {coinData.description && coinData.description}

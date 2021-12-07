@@ -56,13 +56,16 @@ const useInchDex = (chain) => {
       .then((receipt) => {
         if (receipt.statusCode !== 400) {
           alert("Swap Complete");
+          
         }
         console.log(receipt);
       })
       .catch((e) => alert(e.message));
+      console.log(params)
   }
 
   async function doSwap(params) {
+    console.log(params)
     return await Moralis.Plugins.oneInch.swap({
       chain: params.chain, // The blockchain you want to use (eth/bsc/polygon)
       fromTokenAddress: params.fromToken.address, // The token you want to swap
@@ -72,7 +75,7 @@ const useInchDex = (chain) => {
         params.fromToken.decimals
       ).toString(),
       fromAddress: walletAddress, // Your wallet address
-      slippage: 1,
+      slippage: params.newslippage ? params.newslippage : 1,
     });
   }
 
